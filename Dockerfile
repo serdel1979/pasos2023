@@ -1,23 +1,10 @@
-# Etapa 1: Construir la imagen de Nginx con la aplicación Angular desplegada
-FROM nginx:latest
+FROM tomcat:9-jre11
 
-# Copiar el archivo de configuración de Nginx al contenedor
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copia el archivo WAR de tu aplicación desde el directorio target al directorio webapps de Tomcat
+COPY target/12354854985.war /usr/local/tomcat/webapps/
 
-# Copiar los archivos estáticos de Angular al directorio de recursos estáticos de Nginx
-COPY angular-ngx/dist/angular-ngx /usr/share/nginx/html/12354854985/resources/static/dashboard/
-
-# Etapa 2: Construir la imagen de Spring Boot y Tomcat
-FROM adoptopenjdk:11-jre-hotspot
-
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
-
-# Copia el archivo WAR de tu aplicación en el directorio webapps de Tomcat
-COPY target/12354854985.war /app/app.war
-
-# Expone el puerto 8080 para acceder a la aplicación web
+# Exponer el puerto que utiliza Tomcat (por defecto, Tomcat utiliza el puerto 8080)
 EXPOSE 8080
 
-# Comando para iniciar la aplicación de Spring Boot con Tomcat al iniciar el contenedor
-CMD ["java", "-jar", "app.war"]
+# Comando para iniciar el servidor Tomcat y desplegar la aplicación al iniciar el contenedor
+CMD ["catalina.sh", "run"]
