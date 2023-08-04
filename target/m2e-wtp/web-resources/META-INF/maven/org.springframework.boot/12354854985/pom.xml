@@ -184,6 +184,7 @@
 	                <artifactId>tomcat-maven-plugin</artifactId>
 	                <version>2.2</version>
 	            </plugin>
+	             <!--
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
@@ -197,7 +198,7 @@
                             </goals>
                         </execution>
                     </executions>
-                    <!--
+                   
                     <configuration>
                         <executable>npm</executable>
                         <workingDirectory>src/main/angularapp/elecciones-ngx/</workingDirectory>
@@ -206,8 +207,8 @@
                             <argument>build</argument>
                             <argument>build:prod</argument> 
                         </arguments>
-                    </configuration> -->
-                 </plugin>
+                    </configuration> 
+                 </plugin> -->
 	      </plugins>
 	    <pluginManagement>
 	    	<plugins>
