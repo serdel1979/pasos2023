@@ -519,7 +519,7 @@ $(document).ready(function(e) {
 
 				if (val.nro_orden < 32 && (val.allowDipNac || val.allowParlamentarios || val.allowSenadores || val.allowPresidente)) {
 
-					html_inner = html_inner + '<tr class="detalle_registro_votos">';
+					html_inner = html_inner + '<tr class="detalle_registro_votos_nacionales_1">';
 
 
 
@@ -618,8 +618,8 @@ $(document).ready(function(e) {
 
 
 		});
-		html_inner = html_inner + '<tr style="border-bottom: 3px #000 solid;">' +
-			'<th class="tg-yw4l aleft" colspan="3">SUBTOTAL VOTOS AGRUPACIONES POLITICAS</th>' +
+		html_inner = html_inner + '<tr style="border-bottom: 3px #000 solid; background: #d0d0d0">' +
+			'<th class="tg-yw4l aleft"  colspan="3">SUBTOTAL VOTOS AGRUPACIONES POLITICAS</th>' +
 			'<td class="tg-yw4l"><input type="text" style="width:120px;" id="subtotal_votos_agrupaciones_politicas_presidente" onkeyup="alertSubtotalPresidente()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" /></td>' +
 			'<td class="tg-yw4l"><input type="text" style="width:120px;" id="subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur" onkeyup="alertSubtotalParlamentarios()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" /></td>' +
 			'<td class="tg-yw4l"><input type="text" style="width:120px;" id="subtotal_votos_agrupaciones_politicas_senadores" onkeyup="alertSubtotalSenadores()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" /></td>' +
@@ -638,7 +638,7 @@ $(document).ready(function(e) {
 			$.each(value.listaInterna, function(ind, val) {
 				if (val.nro_orden > 31 && val.nro_orden < 48 && (val.allowDipNac || val.allowParlamentarios || val.allowSenadores || val.allowPresidente)) {
 
-					html_inner = html_inner + '<tr class="detalle_registro_votos">';
+					html_inner = html_inner + '<tr class="detalle_registro_votos_nacionales_2">';
 
 
 
@@ -748,7 +748,7 @@ $(document).ready(function(e) {
 
 		$.each(listas_provinciales, function(ind, val) {
 
-			html_inner = html_inner + '<tr><tr class="detalle_registro_votos">';
+			html_inner = html_inner + '<tr><tr class="detalle_registro_votos_provinciales">';
 
 
 
@@ -801,7 +801,11 @@ $(document).ready(function(e) {
 		$(html_inner).insertAfter("#tr_cargos_provinciales");
 
 
-		$('.detalle_registro_votos').find('input[type="text"]').prop('readonly', true);
+		$('.detalle_registro_votos_nacionales_1').find('input[type="text"]').prop('readonly', true);
+		$('.detalle_registro_votos_nacionales_2').find('input[type="text"]').prop('readonly', true);
+		$('.detalle_registro_votos_provinciales').find('input[type="text"]').prop('readonly', true);
+		
+		
 
 
 
@@ -838,14 +842,21 @@ function cargar_mesa() {
 		else {
 			//parsear la respuesta y actualizar la estructura de listas y el formulario
 
-			$('.detalle_registro_votos').find('input[type="text"]').prop('readonly', false);
+			$('.detalle_registro_votos_nacionales_1').find('input[type="text"]').prop('readonly', false);
+			$('.detalle_registro_votos_nacionales_2').find('input[type="text"]').prop('readonly', false);
+			$('.detalle_registro_votos_provinciales').find('input[type="text"]').prop('readonly', false);
+
 			$(".dip_nac").val("0");
+			$(".subtotal-dip_nac").val("0");
 			$(".senadores").val("0");
+			$(".subtotal-senadores").val("0");
 			$(".leg_prov").val("0");
 			$(".parla_reg").val("0");
+			$(".subtotal-parla_reg").val("0");
 			$(".presidente").val("0");
+			$(".subtotal-presidente").val("0");
 			$(".gobernador").val("0");
-			$(".parlamentarios").val("0");
+			$(".subtotal-parlamentarios").val("0");
 			$(".intendente").val("0");
 
 
@@ -988,6 +999,16 @@ function connect() {
 }
 
 
+/*	$(document).ready(function() {
+  	var claseBuscada = 'miClase';
+  
+  	if ($('.' + claseBuscada).length > 0) {
+    		console.log('Al menos un elemento tiene la clase ' + claseBuscada + '.');
+  		} else {
+    		console.log('Ningún elemento tiene la clase ' + claseBuscada + '.');
+  		}
+	}); */
+
 function persistir_mesa() {
 	/*stompClient.subscribe('/topic/messages', function (message) {
 
@@ -1003,13 +1024,15 @@ function persistir_mesa() {
 				$(".error_columna_totales").removeClass("error_columna_totales");
 			 ///console.log(JSON.parse(message.body).totalMesas);
 		}}
-	 ) ;*/
+	 ) ;
 
 	/*if($("#nro_circuito").val()=="")
 	{
 		$("#nro_circuito").focus();
 		return false;
 	}*/
+
+
 
 	if ($("#nro_mesa").val() == "") {
 		$("#nro_mesa").focus();
@@ -1104,23 +1127,78 @@ function persistir_mesa() {
 
 	var escrutinio_detalle = [];
 
-	$(".detalle_registro_votos").each(function(index) {
+	$(".detalle_registro_votos_nacionales_1").each(function(index) {
 		var detalle = new Object();
 		var input_text = $(this).find('input[type="text"]:first').attr("id");
 
 		if (input_text) {
 			detalle.lista_interna = input_text.match(/\d+$/)[0];
-			detalle.senadores = setParam($(this).find(".senadores").val()) + setParam($(this).find(".subtotal-senadores").val());
-			detalle.diputados_nacionales = setParam($(this).find(".dip_nac").val()) + setParam($(this).find(".subtotal-dip_nac").val());
-			detalle.legisladores_provinciales = setParam($(this).find(".leg_prov").val());
-			detalle.intendente = setParam($(this).find(".intendente").val());
-			detalle.presidente = setParam($(this).find(".presidente").val()) + setParam($(this).find(".subtotal-presidente").val());
-			detalle.gobernador = setParam($(this).find(".gobernador").val());
-			detalle.parlamentarios_mercosur = setParam($(this).find(".parlamentarios").val()) + setParam($(this).find(".subtotal-parlamentarios").val());
-			detalle.parlamentarios_regionales = setParam($(this).find(".parla_reg").val()) + setParam($(this).find(".subtotal-parla_reg").val());;
+			
+			detalle.senadores =  setParam($(this).find(".subtotal-senadores").val());
+			detalle.diputados_nacionales = setParam($(this).find(".subtotal-dip_nac").val());
+			detalle.presidente = setParam($(this).find(".subtotal-presidente").val());
+			detalle.parlamentarios_mercosur = setParam($(this).find(".subtotal-parlamentarios").val());
+			detalle.parlamentarios_regionales = setParam($(this).find(".subtotal-parla_reg").val());
+			detalle.legisladores_provinciales = 0;
+			detalle.intendente = 0;
+			detalle .gobernador = 0;
+
+			escrutinio_detalle.push(detalle);
+
+		};
+		});
+		
+	   
+	   $(".detalle_registro_votos_nacionales_2").each(function(index) {
+		var detalle = new Object();
+		var input_text = $(this).find('input[type="text"]:first').attr("id");
+
+		if (input_text) {
+			detalle.lista_interna = input_text.match(/\d+$/)[0];
+			
+			detalle.senadores = setParam($(this).find(".senadores").val()) ;
+			detalle.diputados_nacionales = setParam($(this).find(".dip_nac").val());
+			detalle.presidente = setParam($(this).find(".presidente").val());
+			detalle.parlamentarios_mercosur = setParam($(this).find(".parlamentarios").val());
+			detalle.parlamentarios_regionales = setParam($(this).find(".parla_reg").val());
+			detalle.legisladores_provinciales = 0;
+			detalle.intendente = 0;
+			detalle .gobernador = 0;
 			escrutinio_detalle.push(detalle);
 
 		}
+		});		
+		
+	$(".detalle_registro_votos_provinciales").each(function(index) {
+		var input_text = $(this).find('input[type="text"]:first').attr("id");
+
+		if (input_text) {
+			foundDetalle = escrutinio_detalle.find(detalle => detalle.lista_interna == input_text.match(/\d+$/)[0]);
+			if (foundDetalle){
+				foundDetalle.legisladores_provinciales = setParam($(this).find(".leg_prov").val());
+				foundDetalle.intendente = setParam($(this).find(".intendente").val());
+				foundDetalle .gobernador = setParam($(this).find(".gobernador").val());
+					
+			}
+			else {
+				var detalle = new Object();
+				detalle.lista_interna = input_text.match(/\d+$/)[0];
+				detalle.senadores = 0;
+				detalle.diputados_nacionales = 0;
+				detalle.legisladores_provinciales = setParam($(this).find(".leg_prov").val());
+				detalle.intendente = setParam($(this).find(".intendente").val());
+				detalle.presidente = 0;
+				detalle.gobernador = setParam($(this).find(".gobernador").val());
+				detalle.parlamentarios_mercosur = 0;
+				detalle.parlamentarios_regionales =0;
+   			    escrutinio_detalle.push(detalle);
+				}
+	
+
+		}		
+		
+	});
+		
 
 		/*if($(this).find(".dip_nac").length > 0)
 			detalle.lista_interna = $( this ).find(".dip_nac").attr("id").replace("li_diputados_nacionales_","");
@@ -1146,7 +1224,7 @@ function persistir_mesa() {
 
 
 
-	});
+
 
 	dataRequest.escrutinio_detalle = escrutinio_detalle;
 

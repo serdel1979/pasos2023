@@ -92,7 +92,7 @@
 							  <col width="100">
 							  <col width="156">
 
-							  <tr>
+							  <tr style="background: #f0f0f0">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
 								<th class="tg-031e agrupaciones-politicas" rowspan="2">AGRUPACIONES POLITICAS</th>
 								<th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>
@@ -113,7 +113,7 @@
 								-->	
 
 							  </tr>
-							  <tr id="tr_totales_label_nacionales_1">
+							  <tr style="background: #f0f0f0" id="tr_totales_label_nacionales_1">
 								<td class="tg-031e">Total de votos de la lista</td>
 								<td class="tg-031e">Total de votos de la lista</td>
 								<td class="tg-031e">Total de votos de la lista</td>
@@ -149,7 +149,7 @@
 							  </tr-->
 							  
 							  <!--  Duplicado -->
-							  <tr>
+							  <tr style="background: #f0f0f0">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
 								<th class="tg-031e agrupaciones-politicas" rowspan="2">AGRUPACIONES POLITICAS</th>
 								<th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>
@@ -168,7 +168,7 @@
 							-->
 							  </tr>
 							 
-							  <tr id="tr_totales_label_nacionales_2">
+							  <tr style="background: #f0f0f0" id="tr_totales_label_nacionales_2">
 								<td class="tg-031e">Total de votos de la lista</td>
 								<td class="tg-031e">Total de votos de la lista</td>
 								<td class="tg-031e">Total de votos de la lista</td>
@@ -301,7 +301,7 @@
 							 
 							
 							
-							 -->	
+								
 								
 							<!--  	
 								<td class="tg-031e">Total de votos de la lista</td>
@@ -311,7 +311,7 @@
 							  -->
 							  
 							  </tr>
-							  <tr id="tr_cargos_provinciales">
+							  <tr style="background: #f0f0f0" id="tr_cargos_provinciales">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
 								<th class="tg-031e agrupaciones-politicas"  rowspan="2">AGRUPACIONES POLITICAS</th>
 								<th class="tg-031e" colspan="3" rowspan="2">LISTAS INTERNAS</th>
