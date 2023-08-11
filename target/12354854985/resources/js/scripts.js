@@ -148,12 +148,12 @@ function alertGobernador() {
 //
 function total_votos_parlamentarios() {
 	var total = 0;
-	$(".parlamentarios").each(function(index) {
+	/*$(".parlamentarios").each(function(index) {
 
 		if ($(this).val() != "")
 
 			total = total + parseInt($(this).val());
-	});
+	});*/
 	return total + subtotal_votos_parlamentarios();
 }
 
@@ -301,12 +301,12 @@ function subtotal_votos_presidente() {
 
 function total_votos_presidente() {
 	var total = 0;
-	$(".presidente").each(function(index) {
+	/*$(".presidente").each(function(index) {
 
 		if ($(this).val() != "")
 
 			total = total + parseInt($(this).val());
-	});
+	});*/
 	return total + subtotal_votos_presidente();
 }
 
@@ -948,23 +948,24 @@ function cargar_mesa() {
 			$("#total_votos_x_columna_parlamentarios_regionales").val(provider.mesa.totalVotosXColumnaParlamentariosMercosurReg);
 
 
-
+			$("#subtotal_votos_agrupaciones_politicas_presidente").val(subtotal_votos_presidente);
+			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur").val(subtotal_votos_parlamentarios);
+			$("#subtotal_votos_agrupaciones_politicas_senadores").val(subtotal_votos_senadores);
+			$("#subtotal_votos_agrupaciones_politicas_diputados_nacionales").val(subtotal_votos_dip_nac);
+			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_regionales").val(subtotal_votos_parlamentarios_reg);
+			
 			alertGobernador();
 			alertDipNac();
 			alertSubtotalDipNac();
 			alertLegProv();
 			alertSubtotalParlamentarios();
 			alertParlamentRegionales();
+			alertParlamentarios();
 			alertSubtotalParlamentRegionales();
 			alertSenadores();
 			alertSubtotalSenadores();
 			alertPresidente();
 			alertSubtotalPresidente();
-			$("#subtotal_votos_agrupaciones_politicas_presidente").val(subtotal_votos_presidente);
-			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur").val(subtotal_votos_parlamentarios);
-			$("#subtotal_votos_agrupaciones_politicas_senadores").val(subtotal_votos_senadores);
-			$("#subtotal_votos_agrupaciones_politicas_diputados_nacionales").val(subtotal_votos_dip_nac);
-			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_regionales").val(subtotal_votos_parlamentarios_reg);
 			alertIntendente();
 		}
 
