@@ -225,7 +225,7 @@
 								<td class="tg-yw4l"><input type="text" style="width:120px;" id="total_votos_recurridos_parlamentarios_mercosur" /></td>
 								<td class="tg-yw4l"><input type="text" style="width:120px;" id="total_votos_recurridos_senadores" /></td>
 								<td class="tg-yw4l"><input type="text" style="width:120px;" id="total_votos_recurridos_diputados_nacionales" /></td>
-								<td class="tg-yw4l"><input type="text" style="width:120px;" id="total_votos_parlamentarios_regionales" /></td>
+								<td class="tg-yw4l"><input type="text" style="width:120px;" id="total_votos_recurridos_parlamentarios_regionales" /></td>
 								
 								
 							<!--  	
