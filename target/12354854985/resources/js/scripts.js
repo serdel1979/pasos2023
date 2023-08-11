@@ -29,7 +29,6 @@ function total_votos_senadores() {
 			total = total + parseInt($(this).val());
 	});
 	var val = total + subtotal_votos_senadores();
-	console.log(val);
 	return val;
 }
 
@@ -72,11 +71,9 @@ function alertSubtotalSenadores() {
 
 
 function alertSenadores() {
-	console.log("entraaaaaaaaaaaaaa");
 	if ($("#total_votos_agrupaciones_politicas_senadores").val() == "")
 	{
 		$("#total_votos_agrupaciones_politicas_senadores").removeClass("error_columna_totales");
-    	console.log("error");
     }
 	else {
 		if (parseInt($("#total_votos_agrupaciones_politicas_senadores").val()) != total_votos_senadores()) {
@@ -99,7 +96,6 @@ function total_votos_intendente() {
 
 			total = total + parseInt($(this).val());
 	});
-	console.log(total);
 	return total;
 }
 
@@ -190,7 +186,6 @@ function alertParlamentarios() {
 }
 
 function alertSubtotalParlamentarios() {
-	console.log("ingrr");
 
 	if ($("#subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur").val() == "")
 		$("#subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur").removeClass("error_columna_totales");
@@ -208,11 +203,9 @@ function alertSubtotalParlamentarios() {
 
 //
 
-
 function total_votos_dip_nac() {
 	var total = 0;
 	$(".dip_nac").each(function(index) {
-
 		if ($(this).val() != "")
 
 			total = total + parseInt($(this).val());
@@ -228,14 +221,14 @@ function subtotal_votos_dip_nac() {
 
 			total = total + parseInt($(this).val());
 	});
-	console.log(total);
 	return total;
 }
 
 function alertDipNac() {
 
-	if ($("#total_votos_agrupaciones_politicas_diputados").val() == "")
+	if ($("#total_votos_agrupaciones_politicas_diputados").val() == ""){
 		$("#total_votos_agrupaciones_politicas_diputados").removeClass("error_columna_totales");
+	}
 	else {
 		if (parseInt($("#total_votos_agrupaciones_politicas_diputados").val()) != total_votos_dip_nac()) {
 			if (!$("#total_votos_agrupaciones_politicas_diputados").hasClass("error_columna_totales"))
@@ -249,7 +242,6 @@ function alertDipNac() {
 }
 
 function alertSubtotalDipNac() {
-	console.log("ingreesa")
 	if ($("#subtotal_votos_agrupaciones_politicas_diputados_nacionales").val() == "")
 		$("#subtotal_votos_agrupaciones_politicas_diputados_nacionales").removeClass("error_columna_totales");
 	else {
@@ -337,8 +329,6 @@ function alertSubtotalPresidente() {
 
 
 function alertPresidente() {
-
-console.log('alert presidente');
 
 	if ($("#total_votos_agrupaciones_politicas_presidente").val() == "")
 		$("#total_votos_agrupaciones_politicas_presidente").removeClass("error_columna_totales");
@@ -434,7 +424,7 @@ $(document).ready(function(e) {
 	});
 
 
-	$("#total_votos_agrupaciones_politicas_diputados_nacionales").keyup(function() {
+	$("#total_votos_agrupaciones_politicas_diputados").keyup(function() {
 		//validar columna de diputados nacionales
 		alertDipNac();
 	});
@@ -891,8 +881,7 @@ function cargar_mesa() {
 
 
 
-
-			$("#total_votos_agrupaciones_politicas_diputados_nacionales").val(provider.mesa.totalVotosDiputadosNacionales);
+			$("#total_votos_agrupaciones_politicas_diputados").val(provider.mesa.totalVotosDiputadosNacionales);
 			$("#total_votos_agrupaciones_politicas_legisladores_provinciales").val(provider.mesa.totalVotosLegisladoresProvinciales);
 			$("#total_votos_agrupaciones_politicas_parlamentarios_regionales").val(provider.mesa.totalVotosParlamentariosMercosurReg);
 			$("#total_votos_agrupaciones_politicas_senadores").val(provider.mesa.totalVotosSenadores);
@@ -974,7 +963,7 @@ function cargar_mesa() {
 			$("#subtotal_votos_agrupaciones_politicas_presidente").val(subtotal_votos_presidente);
 			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_mercosur").val(subtotal_votos_parlamentarios);
 			$("#subtotal_votos_agrupaciones_politicas_senadores").val(subtotal_votos_senadores);
-			$("#subtotal_votos_agrupaciones_politicas_senadores").val(subtotal_votos_senadores);
+			$("#subtotal_votos_agrupaciones_politicas_diputados_nacionales").val(subtotal_votos_dip_nac);
 			$("#subtotal_votos_agrupaciones_politicas_parlamentarios_regionales").val(subtotal_votos_parlamentarios_reg);
 			alertIntendente();
 		}
