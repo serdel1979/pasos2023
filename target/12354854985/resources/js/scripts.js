@@ -516,9 +516,9 @@ $(document).ready(function(e) {
 
 					html_inner = html_inner + '<th class="tg-yw4l">' + val.nro_lista + '</th>';//numero de lista
 
-					html_inner = html_inner + '<th class="tg-yw4l aleft">' + ap + '</th>';//agrupacion politica
+					html_inner = html_inner + '<th colspan="2" class="tg-yw4l aleft">' + ap + '</th>';//agrupacion politica
 
-					html_inner = html_inner + '<th class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
+			//		html_inner = html_inner + '<th class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
 
 
 					if (val.allowPresidente)
@@ -635,9 +635,9 @@ $(document).ready(function(e) {
 
 					html_inner = html_inner + '<th class="tg-yw4l">' + val.nro_lista + '</th>';//numero de lista
 
-					html_inner = html_inner + '<th class="tg-yw4l aleft">' + ap + '</th>';//agrupacion politica
+					html_inner = html_inner + '<th colspan="2" class="tg-yw4l aleft">' + ap + '</th>';//agrupacion politica
 
-					html_inner = html_inner + '<th class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
+			//		html_inner = html_inner + '<th class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
 
 
 					if (val.allowPresidente)
@@ -745,9 +745,9 @@ $(document).ready(function(e) {
 
 			html_inner = html_inner + '<th class="tg-yw4l">' + val.nro_lista + '</th>';//numero de lista
 
-			html_inner = html_inner + '<th class="tg-yw4l aleft">' + val.agrupacion + '</th>';//agrupacion politica
+			html_inner = html_inner + '<th colspan="4" class="tg-yw4l aleft">' + val.agrupacion + '</th>';//agrupacion politica
 
-			html_inner = html_inner + '<th colspan="3" class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
+	//		html_inner = html_inner + '<th colspan="3" class="tg-yw4l aleft">' + val.descripcion + '</th>';//lista interna
 
 
 

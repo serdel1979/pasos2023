@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Municipalidad de Tres de Febrero - Elecciones Generales 2021</title>
+        <title>Municipalidad de Tres de Febrero - Elecciones Generales 2023</title>
         <!-- CSS -->
 		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet"  type="text/css" />
         
@@ -94,8 +94,8 @@
 
 							  <tr style="background: #f0f0f0">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
-								<th class="tg-031e agrupaciones-politicas" rowspan="2">AGRUPACIONES POLITICAS</th>
-								<th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>
+								<th class="tg-031e agrupaciones-politicas" colspan="2" rowspan="2">AGRUPACIONES POLITICAS</th>
+							<!--	<th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>   -->
 
 								
 								<th class="tg-031e">Presidente <br> Vicepresidente</th>
@@ -151,8 +151,8 @@
 							  <!--  Duplicado -->
 							  <tr style="background: #f0f0f0">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
-								<th class="tg-031e agrupaciones-politicas" rowspan="2">AGRUPACIONES POLITICAS</th>
-								<th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>
+								<th class="tg-031e agrupaciones-politicas" colspan="2" rowspan="2">AGRUPACIONES POLITICAS</th>
+							<!-- <th class="tg-031e" rowspan="2">LISTAS INTERNAS</th>  -->	
 
 								
 								<th class="tg-031e">Presidente <br> Vicepresidente</th>
@@ -314,8 +314,8 @@
 							  </tr>
 							  <tr style="background: #f0f0f0" id="tr_cargos_provinciales">
 								<th class="tg-031e" rowspan="2">N&deg;</th>
-								<th class="tg-031e agrupaciones-politicas"  rowspan="2">AGRUPACIONES POLITICAS</th>
-								<th class="tg-031e" colspan="3" rowspan="2">LISTAS INTERNAS</th>
+								<th class="tg-031e agrupaciones-politicas" colspan="4" rowspan="2">AGRUPACIONES POLITICAS</th>
+						<!-- 	<th class="tg-031e" colspan="3" rowspan="2">LISTAS INTERNAS</th>  -->	
 								<th class="tg-031e"  rowspan="2">Gobernador</th>
 								<th class="tg-031e"  rowspan="2">Legisladores <br> Provinciales</th>
 								<th class="tg-031e"  rowspan="2">Intendente <br> concejales y <br> consejeros escolares </th>
